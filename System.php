@@ -1,7 +1,7 @@
 <?php
 // This Package is based upon PEAR::System(ver 1.9)
 //  Please visit http://pear.php.net/
-//  
+//
 // +----------------------------------------------------------------------+
 // | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
@@ -69,7 +69,7 @@ class Fly_System
         trigger_error($error, E_USER_WARNING);
         return false;
     }
-    
+
     /**
      * Tell whether a value is a PEAR error.
      *
@@ -95,7 +95,7 @@ class Fly_System
 
         return $data->getCode() == $code;
     }
-    
+
     /**
      * Creates a nested array representing the structure of a directory
      *

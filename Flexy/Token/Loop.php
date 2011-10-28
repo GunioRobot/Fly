@@ -6,9 +6,9 @@
  * @autor Satoshi Nishimura
  */
 class Fly_Flexy_Token_Loop extends Fly_Flexy_Token {
-    
+
     /**
-    * variable to loop on. 
+    * variable to loop on.
     *
     * @var string
     * @access public
@@ -20,8 +20,8 @@ class Fly_Flexy_Token_Loop extends Fly_Flexy_Token {
     * @var string
     * @access public
     */
-    var $value  = ''; 
-    
+    var $value  = '';
+
     /**
     * Setvalue - a array of all three (last one optional)
     * @see parent::setValue()

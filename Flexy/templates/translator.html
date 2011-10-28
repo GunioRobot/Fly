@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
-  
+
   <link type="text/css" rel="stylesheet" href="css/arms.css">
   <title>register2</title>
 </head><body flexy:startchildren="yes">
@@ -11,17 +11,17 @@ function xbDetectBrowser()
 {
     var oldOnError = window.onerror;
     var element = null;
-    
+
     window.onerror = null;
-    
+
     // work around bug in xpcdom Mozilla 0.9.1
     window.saveNavigator = window.navigator;
-    
+
     navigator.OS    = '';
     navigator.version  = parseFloat(navigator.appVersion);
     navigator.org    = '';
     navigator.family  = '';
-    
+
     var platform;
     if (typeof(window.navigator.platform) != 'undefined') {
         platform = window.navigator.platform.toLowerCase();
@@ -33,7 +33,7 @@ function xbDetectBrowser()
             navigator.OS = 'nix';
         }
     }
-    
+
     var i = 0;
     var ua = window.navigator.userAgent.toLowerCase();
     if (ua.indexOf('opera') != -1) {
@@ -44,10 +44,10 @@ function xbDetectBrowser()
     } else if ((i = ua.indexOf('msie')) != -1) {
         navigator.org    = 'microsoft';
         navigator.version  = parseFloat('0' + ua.substr(i+5), 10);
-      
-        if (navigator.version < 4) { 
+
+        if (navigator.version < 4) {
             navigator.family = 'ie3';
-        } else { 
+        } else {
             navigator.family = 'ie4'
         }
     } else if (ua.indexOf('gecko') != -1) {
@@ -61,23 +61,23 @@ function xbDetectBrowser()
             rv = rv.substring(0, decIndex-1) + '.' + rv.substr(decIndex)
         }
         navigator.version = parseFloat(rv);
-        
-        if (ua.indexOf('netscape') != -1) { 
+
+        if (ua.indexOf('netscape') != -1) {
           navigator.org = 'netscape';
         } else if (ua.indexOf('compuserve') != -1) {
           navigator.org = 'compuserve';
         } else {
             navigator.org = 'mozilla';
         }
-    } else if ((ua.indexOf('mozilla') !=-1) && 
-                (ua.indexOf('spoofer')==-1) && 
-                (ua.indexOf('compatible') == -1) && 
-                (ua.indexOf('opera')==-1) && 
-                (ua.indexOf('webtv')==-1) && 
+    } else if ((ua.indexOf('mozilla') !=-1) &&
+                (ua.indexOf('spoofer')==-1) &&
+                (ua.indexOf('compatible') == -1) &&
+                (ua.indexOf('opera')==-1) &&
+                (ua.indexOf('webtv')==-1) &&
                 (ua.indexOf('hotjava')==-1))  {
         var is_major = parseFloat(navigator.appVersion);
-      
-        if (is_major < 4) { 
+
+        if (is_major < 4) {
             navigator.version = is_major;
         } else {
             i = ua.lastIndexOf('/')
@@ -96,7 +96,7 @@ function xbDetectBrowser()
         navigator.org    = 'sun';
         navigator.version  = parseFloat(navigator.appVersion);
     }
-    
+
     window.onerror = oldOnError;
 }
 
@@ -118,23 +118,23 @@ function getTableNodeName(Node){
 
 
 function showNode(Node){
-    
+
 	switch(navigator.family){
 		case 'nn4':
 			// Nav 4.x code fork...
 			var oTable = document.layers[getTableNodeName(Node)];
 			break;
-            
+
 		case 'ie4':
 			// IE 4/5 code fork...
 			var oTable = document.all[getTableNodeName(Node)];
 			break;
-            
+
 		case 'gecko':
 			// Standards Compliant code fork...
 			var oTable = document.getElementById(getTableNodeName(Node));
 			break;
-            
+
 	}
 	oTable.style.display = "block";
 }
@@ -145,17 +145,17 @@ function hideNode(Node){
 			// Nav 4.x code fork...
 			var oTable = document.layers[getTableNodeName(Node)];
 			break;
-            
+
 		case 'ie4':
 			// IE 4/5 code fork...
 			var oTable = document.all[getTableNodeName(Node)];
 			break;
-            
+
 		case 'gecko':
 			// Standards Compliant code fork...
 			var oTable = document.getElementById(getTableNodeName(Node));
 			break;
-            
+
 	}
 	oTable.style.display = "none";
 }
@@ -172,42 +172,42 @@ function nodeIsVisible(Node){
 			// Nav 4.x code fork...
 			var oTable = document.layers[getTableNodeName(Node)];
 			break;
-            
+
 		case 'ie4':
 			// IE 4/5 code fork...
 			var oTable = document.all[getTableNodeName(Node)];
 			break;
-            
+
 		case 'gecko':
 			// Standards Compliant code fork...
 			var oTable = document.getElementById(getTableNodeName(Node));
 			break;
-            
+
 	}
 	return (oTable && oTable.style.display == "block");
 }
 
 </script>
 
- 
+
 
 Select a Language To Translate To : {foreach:languages,lang}
     <a href="{appURL}?translate={lang}">{lang}</a>
     {end:}
 
 
- 
 
 
 
 
-  
+
+
 <form method="post" flexy:ignoreonly="yes" action="{appURL}" flexy:if="translate">
 <input name="translate" value="{translate}" type="hidden" flexy:ignoreonly="yes">
 
-<h1>Language : {translate}&nbsp;&nbsp; 
-    <input flexy:ignoreonly="yes" value="save" name="_submit" type="submit"> 
-    or  
+<h1>Language : {translate}&nbsp;&nbsp;
+    <input flexy:ignoreonly="yes" value="save" name="_submit" type="submit">
+    or
     <input flexy:ignoreonly="yes" value="Save And Make Live" name="_apply" type="submit">
     or
     <input flexy:ignoreonly="yes" value="Save And Clear Un-used Translations" name="_clear" type="submit">
@@ -220,7 +220,7 @@ Select a Language To Translate To : {foreach:languages,lang}
   <tbody>
     <tr>
       <td bgcolor="#cccccc" colspan="2" rowspan="1" valign="top"  width="600">
-        <a class="property" href="javascript:toggleNodeVisibility('{page}');">+      
+        <a class="property" href="javascript:toggleNodeVisibility('{page}');">+
         Page:<b>{page}&nbsp;&nbsp; (in {translate})</b></a><br>
       </td>
     </tr>
@@ -228,9 +228,9 @@ Select a Language To Translate To : {foreach:languages,lang}
 
 <span id="pane{page}" style="display: none;">
   <table width="100%" border="0" cellspacing="2" cellpadding="2"  width="600" align="center">
-  
+
     <tr flexy:foreach="items,item">
-    
+
       <td bgcolor="#eeeeee" vaslign="top" width="300">
         <a name="{item.md5}">
           {if:item.untranslated}
@@ -243,8 +243,8 @@ Select a Language To Translate To : {foreach:languages,lang}
       </td>
       <td bgcolor="#ffffff" valign="top" width="300">
         <a href="#%7Bitem.md5%7D" flexy:if="item.already">See here</a>
-        <span flexy:if="!item.already"> 
-        <span flexy:if="item.short"><input 
+        <span flexy:if="!item.already">
+        <span flexy:if="item.short"><input
             flexy:ignoreonly="yes" value="{item.to}" name="{translate}[{item.md5}]" size="40"></span>
 		 <textarea cols="40" rows="5" flexy:if="!item.short" flexy:ignore="yes" name="{translate}[{item.md5}]" size="40">{item.to}</textarea>
          </span>
@@ -258,9 +258,9 @@ Select a Language To Translate To : {foreach:languages,lang}
 <br>
 <!-- InstanceEndEditable --><br>
       </form>
- 
-   
-  
-    
-  
+
+
+
+
+
 </body></html>

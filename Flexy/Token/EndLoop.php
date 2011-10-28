@@ -4,5 +4,5 @@
  *
  * @author Satoshi Nishimura
  */
-class Fly_Flexy_Token_EndLoop extends Fly_Flexy_Token { 
+class Fly_Flexy_Token_EndLoop extends Fly_Flexy_Token {
 }
